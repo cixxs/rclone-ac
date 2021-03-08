@@ -1,0 +1,33 @@
+name: Transfers2
+on:
+  workflow_dispatch:
+jobs:
+  AutoSyncProcess:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Rclone Install
+      run: |
+        curl -s https://api.myip.la/cn?json
+        wget -q https://github.com/jonntd/gclone/releases/download/v1.52.13/gclone_1.52.13_Linux_x86_64.gz
+        gunzip gclone_1.52.13_Linux_x86_64.gz
+        sudo mv gclone_1.52.13_Linux_x86_64 /usr/bin/gclone
+        chmod +x /usr/bin/gclone
+    - name: Inject Rclone config
+      run: |
+        mkdir -p ~/.config/rclone/
+        cat >  ~/.config/rclone/rclone.conf  << EOF
+        ${{ secrets.RCLONE_CONF }}
+        EOF
+        mkdir -p /home/runner/accounts/ 
+        cat >  /home/runner/accounts/1.json  << EOF
+        ${{ secrets.SA1_CONF }}
+        EOF
+        cat >  /home/runner/accounts/2.json  << EOF
+        ${{ secrets.SA2_CONF }}
+        EOF
+        cat >  /home/runner/accounts/3.json  << EOF
+        ${{ secrets.SA3_CONF }}
+        EOF
+    - name: Rclone Synchronizing file
+      run: |
+        gclone copy ${{ secrets.FILE_PATH2 }} --max-backlog 1000 --stats-log-level NOTICE -P --stats 30s --size-only --cache-chunk-total-size 20G --transfers=10 --onedrive-chunk-size 250M --drive-chunk-size 256M
