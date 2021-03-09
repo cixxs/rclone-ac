@@ -1,4 +1,4 @@
-name: Transfers
+name: TsShtCN-gd2sp
 on:
   schedule:
   - cron: "05 2,8,14,20 * * *"
