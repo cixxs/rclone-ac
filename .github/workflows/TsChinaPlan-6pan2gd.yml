@@ -1,4 +1,4 @@
-name: TsChinaPlan
+name: TsChinaPlan-6pan2gd
 on:
   workflow_dispatch:
 jobs:
