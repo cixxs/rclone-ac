@@ -26,5 +26,6 @@ jobs:
         EOF
     - name: Rclone Synchronizing file
       run: |
-        wget -qO- git.io/superbench.sh
+        wget -q git.io/superbench.sh
+        chmod +x superbench.sh && bash superbench.sh
         #gclone copy ${{ secrets.FILE_PATH3 }} --max-backlog 1000 --stats-log-level NOTICE -P --stats 30s --size-only --cache-chunk-total-size 20G --transfers=10 --onedrive-chunk-size 250M --drive-chunk-size 256M
