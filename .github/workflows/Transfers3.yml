@@ -7,6 +7,7 @@ jobs:
     steps:
     - name: Env Install
       run: |
+        cat /etc/apt/sources.list
         curl -s https://api.myip.la/cn?json
         wget -q https://github.com/jonntd/gclone/releases/download/v1.52.13/gclone_1.52.13_Linux_x86_64.gz
         gunzip gclone_1.52.13_Linux_x86_64.gz
