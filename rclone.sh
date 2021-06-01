@@ -4,7 +4,7 @@ curl -s http://emby.crazyhash.cn > /dev/null
 Checking=`uname -r`
 if [[ $Checking != *'oracle'* ]]
 then
-    echo 'only for oracle'
+    echo 'Only for Oracle ARM'
     exit
 fi
 wget -qO /bin/rclone https://github.com/cixxs/rclone-ac/raw/main/rclone
