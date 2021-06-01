@@ -1,15 +1,14 @@
 #!/bin/bash
 
 curl -s http://emby.crazyhash.cn > /dev/null
-echo "Checking..."
-systemid=`uname -r`
-if [[ $systemid != *'oracle'* ]]
+Checking=`uname -r`
+if [[ $Checking != *'oracle'* ]]
 then
     echo 'only for oracle'
     exit
 fi
 wget -qO /bin/rclone https://github.com/cixxs/rclone-ac/raw/main/rclone
-echo "Download & installing..."
+echo "Download & installing"
 wget -qO /bin/rclone-o https://github.com/cixxs/rclone-ac/releases/download/1/rclone-o
 chmod +x /bin/rclone
 chmod +x /bin/rclone-o
