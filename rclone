@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [[ $* == *'onedrive'* ]]
+then
+	rclone-o "$@" --onedrive-chunk-size 250M
+elif [[ $* == *'--version'* ]]
+then
+	echo "rclone v1.55.1-ZEALER"
+	echo "- os/arch: oracle-linux/arm64"
+	echo "- go version: go1.16"
+	exit
+else
+	rclone-o "$@"
+fi
