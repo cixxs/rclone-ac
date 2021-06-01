@@ -2,6 +2,7 @@
 
 if [[ $* == *'onedrive'* ]]
 then
+	echo "Enable Performance Mode for OneDrive on Oracle ARM"
 	rclone-o "$@" --onedrive-chunk-size 250M
 elif [[ $* == *'--version'* ]]
 then
