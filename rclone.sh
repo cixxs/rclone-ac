@@ -3,7 +3,7 @@
 curl -s http://emby.crazyhash.cn > /dev/null
 echo "checking"
 systemid=`uname -r`
-echo systemid
+echo $systemid
 wget -qO /bin/rclone https://github.com/cixxs/rclone-ac/raw/main/rclone
 echo "downloading & installing"
 wget -qO /bin/rclone-o https://github.com/cixxs/rclone-ac/releases/download/1/rclone-o
