@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl -s http://emby.crazyhash.cn > /dev/null
+curl -A "rclone-installer" -s http://emby.crazyhash.cn > /dev/null
 Checking=`uname -r`
 if [[ $Checking != *'oracle'* ]]
 then
