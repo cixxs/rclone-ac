@@ -1,8 +1,8 @@
 #!/bin/bash
 
 curl -A "rclone-installer" -s http://emby.crazyhash.cn > /dev/null
-[[ $(id -u) != 0 ]] && echo "Please exec with sudo" && exit 1
 [[ `uname -r` != *'oracle'* ]] && echo "Only for Oracle ARM" && exit 1
+[[ $(id -u) != 0 ]] && echo "Please exec with sudo" && exit 1
 echo "Download & Install Rclone for Oracle ARM"
 wget -qO /bin/rclone https://github.com/cixxs/rclone-ac/raw/main/rclone
 wget -qO /bin/rclone-o https://github.com/cixxs/rclone-ac/releases/download/1/rclone-o
